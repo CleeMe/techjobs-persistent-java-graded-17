@@ -14,14 +14,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Controller
-@RequestMapping ("/skills")
+@RequestMapping("/skills")
 public class SkillController {
-    @Autowired
-    private SkillRepository skillRepository;
+    private final SkillRepository skillRepository;
 
+    @Autowired
     public SkillController(SkillRepository skillRepository) {
         this.skillRepository = skillRepository;
     }
+
 
     @GetMapping()
     public String index(Model model) {
@@ -30,7 +31,7 @@ public class SkillController {
     }
 
     @GetMapping("/add")
-    public String displayAddSkillForm (Model model) {
+    public String displayAddSkillForm(Model model) {
         model.addAttribute("title", "Add Skill");
         model.addAttribute(new Skill());
         return "skills/add";
@@ -58,7 +59,4 @@ public class SkillController {
             return "redirect:/skills";
         }
     }
-
-
 }
-
