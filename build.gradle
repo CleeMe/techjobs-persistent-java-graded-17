@@ -25,6 +25,7 @@ dependencies {
 	testImplementation("org.jmockit:jmockit:1.49")
 }
 
+
 tasks.named('test') {
 	useJUnitPlatform()
 	jvmArgs "-javaagent:${classpath.find { it.name.contains("jmockit") }.absolutePath}"

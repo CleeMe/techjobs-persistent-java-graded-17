@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.launchcode.techjobs.persistent.models.Skill;
 import org.springframework.validation.Errors;
 import java.util.Optional;
-import javax.validation.Valid;
+//import javax.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -31,7 +31,7 @@ public class SkillController {
         return "skills/add";
     }
     @PostMapping("add")
-    public String processAddSkillForm(@ModelAttribute @Valid Skill newSkill, Errors errors, Model model)    {
+    public String processAddSkillForm(@ModelAttribute Skill newSkill, Errors errors, Model model)    {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Skill");
             return "skills/add";
