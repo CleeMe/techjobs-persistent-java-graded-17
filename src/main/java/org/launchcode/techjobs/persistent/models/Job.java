@@ -11,11 +11,9 @@ import java.util.List;
 @Entity
 public class Job extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
+
     @ManyToOne
     private Employer employer;
-    private int id;
 
     private String name;
 
@@ -26,11 +24,11 @@ public class Job extends AbstractEntity {
     }
 
     // Initialize the id and value fields.
-    public Job(String name, Employer anEmployer, String someSkills) {
+    public Job(String name, Employer employer, String skills) {
         super();
         this.name = name;
-        this.employer = anEmployer;
-        this.skills = someSkills;
+        this.employer = employer;
+        this.skills = skills;
     }
 
     // Getters and setters.
@@ -48,6 +46,7 @@ public class Job extends AbstractEntity {
     }
 
     public void setEmployer(Employer employer) {
+
         this.employer = employer;
     }
 
