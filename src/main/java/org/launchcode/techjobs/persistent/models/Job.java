@@ -15,7 +15,6 @@ public class Job extends AbstractEntity {
     @ManyToOne
     private Employer employer;
 
-    private String name;
 
     private String skills;
 
@@ -26,20 +25,11 @@ public class Job extends AbstractEntity {
     // Initialize the id and value fields.
     public Job(String name, Employer employer, String skills) {
         super();
-        this.name = name;
         this.employer = employer;
         this.skills = skills;
     }
 
     // Getters and setters.
-    
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Employer getEmployer() {
         return employer;
