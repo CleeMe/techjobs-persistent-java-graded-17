@@ -52,4 +52,9 @@ public class SkillController {
             return "redirect:/skills";
         }
     }
-}
+        public String displayViewSkill(Model model, @PathVariable int skillId) {
+            return displayViewSkill(skillId, model);
+        }
+
+    }
+
