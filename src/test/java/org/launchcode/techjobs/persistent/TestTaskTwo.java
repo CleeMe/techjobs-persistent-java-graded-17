@@ -491,7 +491,7 @@ public class TestTaskTwo extends AbstractTest {
         }};
 
         Model model = new ExtendedModelMap();
-        SkillController skillController = new SkillController();
+        SkillController skillController = new SkillController(skillRepository);
         Field skillRepositoryField = skillControllerClass.getDeclaredField("skillRepository");
         skillRepositoryField.setAccessible(true);
         skillRepositoryField.set(skillController, skillRepository);
@@ -515,7 +515,7 @@ public class TestTaskTwo extends AbstractTest {
         }};
 
         Model model = new ExtendedModelMap();
-        SkillController skillController = new SkillController();
+        SkillController skillController = new SkillController(skillRepository);
         Field skillRepositoryField = skillControllerClass.getDeclaredField("skillRepository");
         skillRepositoryField.setAccessible(true);
         skillRepositoryField.set(skillController, skillRepository);
@@ -535,7 +535,7 @@ public class TestTaskTwo extends AbstractTest {
         }};
 
         Model model = new ExtendedModelMap();
-        SkillController skillController = new SkillController();
+        SkillController skillController = new SkillController(skillRepository);
         Field skillRepositoryField = skillControllerClass.getDeclaredField("skillRepository");
         skillRepositoryField.setAccessible(true);
         skillRepositoryField.set(skillController, skillRepository);
