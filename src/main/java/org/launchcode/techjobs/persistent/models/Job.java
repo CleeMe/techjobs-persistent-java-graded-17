@@ -11,7 +11,7 @@ public class Job extends AbstractEntity {
     @ManyToOne
     private Employer employer;
 
-    @ManyToMany(mappedBy = "jobs")
+    @ManyToMany
     @JoinTable(
             name = "job_skill",
             joinColumns = @JoinColumn(name = "job_id"),
@@ -29,6 +29,11 @@ public class Job extends AbstractEntity {
         this.skills = skills;
     }
 
+    public Job(Employer employer, List<Skill> skills) {
+        super();
+        this.employer = employer;
+        this.skills = skills;
+    }
     public Employer getEmployer() {
         return employer;
     }
