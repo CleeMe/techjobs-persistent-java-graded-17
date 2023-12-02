@@ -27,9 +27,11 @@ public class Job extends AbstractEntity {
     // Initialize the id and value fields.
     public Job(String name, Employer employer, List<Skill> skills) {
         super();
+        this.setName(name);
         this.employer = employer;
         this.skills = skills;
     }
+
 
     // Getters and setters.
 
@@ -38,7 +40,6 @@ public class Job extends AbstractEntity {
     }
 
     public void setEmployer(Employer employer) {
-
         this.employer = employer;
     }
 

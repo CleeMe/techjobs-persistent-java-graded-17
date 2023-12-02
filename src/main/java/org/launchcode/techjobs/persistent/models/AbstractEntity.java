@@ -1,7 +1,6 @@
 package org.launchcode.techjobs.persistent.models;
 
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
@@ -20,6 +19,8 @@ public abstract class AbstractEntity {
     @NotNull(message= "Name is required")
 
     private String name;
+
+
 
     public int getId() {
         return id;
