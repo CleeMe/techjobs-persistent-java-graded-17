@@ -8,32 +8,26 @@ import java.util.List;
 @Entity
 public class Job extends AbstractEntity {
 
-
     @ManyToOne
     private Employer employer;
 
     @ManyToMany
     @JoinTable(
-                    name = "job_skill",
-                    joinColumns = @JoinColumn(name = "job_id"),
-                    inverseJoinColumns = @JoinColumn(name = "skill_id")
-            )
-
+            name = "job_skill",
+            joinColumns = @JoinColumn(name = "job_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id")
+    )
     private List<Skill> skills;
 
     public Job() {
     }
 
-    // Initialize the id and value fields.
     public Job(String name, Employer employer, List<Skill> skills) {
         super();
         this.setName(name);
         this.employer = employer;
         this.skills = skills;
     }
-
-
-    // Getters and setters.
 
     public Employer getEmployer() {
         return employer;
@@ -51,4 +45,13 @@ public class Job extends AbstractEntity {
         this.skills = skills;
     }
 
+    // Additional method to add a single skill to the job
+    public void addSkill(Skill skill) {
+        this.skills.add(skill);
+    }
+
+    // Additional method to remove a single skill from the job
+    public void removeSkill(Skill skill) {
+        this.skills.remove(skill);
+    }
 }

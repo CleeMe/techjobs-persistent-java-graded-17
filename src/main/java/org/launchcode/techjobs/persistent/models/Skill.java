@@ -14,7 +14,7 @@ public class Skill extends AbstractEntity {
     @Size(max = 500, message = "Description too long!")
     private String description;
 
-    @ManyToMany(mappedBy = "skills")
+    @ManyToMany
     @JoinTable(
             name = "job_skill",
             joinColumns = @JoinColumn(name = "skill_id"),
@@ -41,4 +41,3 @@ public class Skill extends AbstractEntity {
         this.jobs = jobs;
     }
 }
-
