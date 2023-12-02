@@ -11,7 +11,7 @@ public class Job extends AbstractEntity {
     @ManyToOne
     private Employer employer;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "jobs")
     @JoinTable(
             name = "job_skill",
             joinColumns = @JoinColumn(name = "job_id"),
