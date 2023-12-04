@@ -2,7 +2,6 @@ package org.launchcode.techjobs.persistent.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,9 +9,6 @@ public class Job extends AbstractEntity {
 
     @ManyToOne
     private Employer employer;
-
-    @OneToMany(mappedBy = "employer")
-    private List<Job> jobs = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -31,9 +27,7 @@ public class Job extends AbstractEntity {
     }
 
     public Job() {
-
     }
-
 
     public Employer getEmployer() {
         return employer;
