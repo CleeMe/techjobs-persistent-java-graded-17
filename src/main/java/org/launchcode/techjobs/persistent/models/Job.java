@@ -25,8 +25,11 @@ public class Job extends AbstractEntity {
         this.skills = skills;
     }
 
-    public Job() {
-    }
+//    Slash is this where I am supposed do SOMETHING!??!?! I am trying to read this
+//    error I have tried job, name and now  new Job to match the test...  I am sooooo lost hahaha
+//    public Job getJob() {
+//        return new Job();
+//    }
 
     public Employer getEmployer() {
         return employer;
