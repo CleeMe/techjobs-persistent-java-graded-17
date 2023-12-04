@@ -10,14 +10,13 @@ public class Job extends AbstractEntity {
     @ManyToOne
     private Employer employer;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "job_skill",
             joinColumns = @JoinColumn(name = "job_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id")
     )
     private List<Skill> skills;
-
 
     public Job(String name, Employer employer, List<Skill> skills) {
         super();
