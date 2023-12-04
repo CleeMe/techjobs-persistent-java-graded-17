@@ -4,7 +4,7 @@ Employer - string
 Name - string
 Skills - string
 --Part 2
-SELECT name, location
+SELECT name
 FROM employer
 WHERE location = "St. Louis City";
 
