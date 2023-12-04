@@ -10,7 +10,7 @@ public class Job extends AbstractEntity {
     @ManyToOne
     private Employer employer;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "skills")
     @JoinTable(
             name = "job_skill",
             joinColumns = @JoinColumn(name = "job_id"),
@@ -25,11 +25,8 @@ public class Job extends AbstractEntity {
         this.skills = skills;
     }
 
-//    Slash is this where I am supposed do SOMETHING!??!?! I am trying to read this
-//    error I have tried job, name and now  new Job to match the test...  I am sooooo lost hahaha
-//    public Job getJob() {
-//        return new Job();
-//    }
+    public Job() {
+    }
 
     public Employer getEmployer() {
         return employer;
