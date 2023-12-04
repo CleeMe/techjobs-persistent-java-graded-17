@@ -1,21 +1,20 @@
 package org.launchcode.techjobs.persistent.controllers;
 
+import org.launchcode.techjobs.persistent.models.Skill;
 import org.launchcode.techjobs.persistent.models.data.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-import org.launchcode.techjobs.persistent.models.Skill;
 import org.springframework.validation.Errors;
-import java.util.Optional;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import java.util.Optional;
 
 
 @Controller
 @RequestMapping("/skills")
 public class SkillController {
+    @Autowired
     private final SkillRepository skillRepository;
 
     @Autowired
@@ -24,7 +23,7 @@ public class SkillController {
     }
 
 
-    @GetMapping()
+    @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
