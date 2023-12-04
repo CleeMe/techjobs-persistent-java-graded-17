@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.validation.constraints.Size;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,7 +21,7 @@ public class Skill extends AbstractEntity {
 //    )
     private List<Job> jobs;
 
-    public Skill() {
+    public Skill() {this.jobs = new ArrayList<>();
     }
 
     public String getDescription() {
