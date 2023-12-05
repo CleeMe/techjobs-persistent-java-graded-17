@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group">
-        <label th:for="employer">Employer</label>
+        <label th:for="employerId">Employer</label>
         <select th:field="${job.employer.id}" class="form-control">
             <option th:each="employer : ${employers}"
                     th:text="${employer.name}"
