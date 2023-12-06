@@ -16,12 +16,8 @@ public abstract class AbstractEntity {
 
     @Size(max = 75)
     @NotNull(message= "Name is required")
-
     private String name;
 
-//    public AbstractEntity(Employer employer, List<Skill> skills) {
-//
-//    }
     public AbstractEntity() {
     }
 

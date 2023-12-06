@@ -3,11 +3,11 @@ package org.launchcode.techjobs.persistent.controllers;
 
 import jakarta.validation.Valid;
 import org.launchcode.techjobs.persistent.models.Employer;
+import org.launchcode.techjobs.persistent.models.Job;
 import org.launchcode.techjobs.persistent.models.Skill;
 import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
 import org.launchcode.techjobs.persistent.models.data.JobRepository;
 import org.launchcode.techjobs.persistent.models.data.SkillRepository;
-import org.launchcode.techjobs.persistent.models.Job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,21 +56,25 @@ public class HomeController {
                                     @RequestParam List<Integer> skills) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Job");
-            model.addAttribute("employers", employerRepository.findAll());
-            model.addAttribute("skills", skillRepository.findAll());
             return "add";
         }
-
-        Optional<Employer> optionalEmployer = employerRepository.findById(employerId);
-        if (optionalEmployer.isPresent()) {
-            Employer selectedEmployer = optionalEmployer.get();
-            newJob.setEmployer(selectedEmployer);
-        }
+            model.addAttribute("employerId", employerId);
+            model.addAttribute("newJob", "newJob");
+            model.addAttribute("employers", employerRepository.findAll());
+//            model.addAttribute("skills", skillRepository.findAll());
+            model.addAttribute("job", jobRepository.findAll());
 
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
         newJob.setSkills(skillObjs);
 
+        if (employerRepository.findById(employerId).isPresent()) {
+            Employer employer = employerRepository.findById(employerId).get();
+            newJob.setEmployer(employer);
+        }
+
+        if(employerRepository.findById(employerId).isEmpty()) {
+            model.addAttribute("title", "Invalid Employer ID");
+        }
         jobRepository.save(newJob);
 
         return "redirect:/";
