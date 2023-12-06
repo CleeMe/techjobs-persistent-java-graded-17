@@ -15,7 +15,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Created by LaunchCode
@@ -36,7 +35,7 @@ public class HomeController {
     public String index(Model model) {
 
         model.addAttribute("title", "MyJobs");
-
+        model.addAttribute("jobs", jobRepository.findAll());
         return "index";
     }
 
@@ -77,17 +76,19 @@ public class HomeController {
         }
         jobRepository.save(newJob);
 
-        return "redirect:/";
+        return "redirect:";
     }
 
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
-        Optional<Job> jobOptional = jobRepository.findById(jobId);
 
-        if (jobOptional.isPresent()) {
-            Job job = jobOptional.get();
+       model.addAttribute("jobId", jobId);
+       model.addAttribute("job", jobRepository.findAll());
+
+
+        if (jobRepository.findById(jobId).isPresent()) {
+            Job job = jobRepository.findById(jobId).get();
             model.addAttribute("job", job);
-            return "view";
 
         }
         return "view";
