@@ -6,7 +6,6 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import java.util.List;
 import java.util.Objects;
 @MappedSuperclass
 public abstract class AbstractEntity {
@@ -20,12 +19,9 @@ public abstract class AbstractEntity {
 
     private String name;
 
-    public AbstractEntity(Employer employer, List<Skill> skills) {
-
-    }
-    public AbstractEntity(String name)  {
-        this.name = name;
-    }
+//    public AbstractEntity(Employer employer, List<Skill> skills) {
+//
+//    }
     public AbstractEntity() {
     }
 
