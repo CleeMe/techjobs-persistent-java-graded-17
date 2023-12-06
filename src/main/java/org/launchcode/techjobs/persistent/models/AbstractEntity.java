@@ -6,6 +6,7 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
 import java.util.Objects;
 @MappedSuperclass
 public abstract class AbstractEntity {
@@ -18,18 +19,18 @@ public abstract class AbstractEntity {
     @NotNull(message= "Name is required")
     private String name;
 
+    public AbstractEntity(Employer employer, List<Skill> skills) {
+    }
+
     public AbstractEntity() {
     }
 
     public int getId() {
         return id;
     }
-
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
