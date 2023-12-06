@@ -44,8 +44,5 @@ public class Employer extends AbstractEntity {
         this.jobs = jobs;
     }
 
-    public void addJob(Job job) {
-        jobs.add(job);
-        job.setEmployer(this);
-    }
+
 }
