@@ -2,6 +2,7 @@ package org.launchcode.techjobs.persistent.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,16 +12,16 @@ public class Job extends AbstractEntity {
     private Employer employer;
 
     @ManyToMany
-    private List<Skill> skills;
+    private List<Skill> skills = new ArrayList<>();
 
     public Job(Employer employer, List<Skill> skills) {
-        super();
-
+        super(employer, skills);
         this.employer = employer;
         this.skills = skills;
     }
 
     public Job() {
+        super();
     }
 
     public Employer getEmployer() {
@@ -28,13 +29,7 @@ public class Job extends AbstractEntity {
     }
 
     public void setEmployer(Employer employer) {
-        if (this.employer != null) {
-            this.employer.getJobs().remove(this);
-        }
-        this.employer = employer;
-        if (employer != null) {
-            employer.getJobs().add(this);
-        }
+       this.employer = employer;
     }
 
     public List<Skill> getSkills() {
@@ -45,13 +40,13 @@ public class Job extends AbstractEntity {
         this.skills = skills;
     }
 
-    // Additional method to add a single skill to the job
-    public void addSkill(Skill skill) {
-        this.skills.add(skill);
-    }
-
-    // Additional method to remove a single skill from the job
-    public void removeSkill(Skill skill) {
-        this.skills.remove(skill);
-    }
+//    // Additional method to add a single skill to the job
+//    public void addSkill(Skill skill) {
+//        this.skills.add(skill);
+//    }
+//
+//    // Additional method to remove a single skill from the job
+//    public void removeSkill(Skill skill) {
+//        this.skills.remove(skill);
+//    }
 }
